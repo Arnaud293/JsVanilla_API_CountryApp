@@ -26,3 +26,23 @@ input[type="range"] {
   font-size: 1.2rem;
   transform: translateY(-3px);
 }
+
+.countries-container{
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+}
+
+.country-card{
+  background: #000;
+  color: azure;
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+  margin: 5px;
+  text-align: center;
+  height: 250px;
+}
