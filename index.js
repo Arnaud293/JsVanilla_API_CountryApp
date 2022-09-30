@@ -23,6 +23,8 @@ const CountriesDisplay = () => {
                     <div class='country-card'>
                         <h2>${country.name.common}</h2>
                         <img src='${country.flags.png}'/>
+                        <p>${country.capital}</p>
+                        <p>${country.population} habitants</p>
                     </div>
                     `
         }).join('');
