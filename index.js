@@ -19,11 +19,11 @@ const CountriesDisplay = () => {
 
         container.innerHTML = countries.map((country) => {
             return  ` 
-                <ul>
-                    <li>
+                
+                    <div class='country-card'>
                         <h2>${country.name.common}</h2>
-                    </li>
-                </ul>`
+                    </div>
+                    `
         }).join('');
     }
 }
