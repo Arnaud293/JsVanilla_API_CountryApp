@@ -3,7 +3,7 @@ const container = document.querySelector('.countries-container');
 let countries = [];
 
 const fetchCountries = async () => {
-    await fetch('https://restcountries.com/v3.1/all')
+    await fetch(`https://restcountries.com/v3.1/all/`)
     .then((res) => res.json())
     .then((data) => (countries = data));
 
@@ -13,11 +13,13 @@ const fetchCountries = async () => {
 
 fetchCountries();
 
+
+
 const CountriesDisplay = () => {
 
     for(let i = 0; i < countries.length; i++){
 
-        container.innerHTML = countries.map((country) => {
+        container.innerHTML = countries.filter((country) => country.translations.fra.common.includes(inputSearch.value)).map((country) => {
             return  ` 
                 
                     <div class='country-card'>
@@ -31,3 +33,9 @@ const CountriesDisplay = () => {
     }
 }
 
+window.addEventListener('load', fetchCountries);
+
+inputSearch.addEventListener('input', (e) => {
+    e.preventDefault();
+    fetchCountries(e.target.value).then(() => CountriesDisplay());
+} )
