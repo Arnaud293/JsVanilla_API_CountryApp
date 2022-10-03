@@ -44,9 +44,8 @@ inputSearch.addEventListener('input', (e) => {
     fetchCountries(e.target.value).then(() => CountriesDisplay());
 } )
 
-inputRange.addEventListener('input', (e) => {
+inputRange.addEventListener('input', () => {
 
     CountriesDisplay();
     rangeValue.textContent = inputRange.value;
-    countries.length = inputRange.value;
 })
