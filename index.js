@@ -25,7 +25,9 @@ const CountriesDisplay = () => {
     for (let i = 0; i < countries.length; i++){
 
 
-        container.innerHTML = countries.filter((country) => country.translations.fra.common.toLowerCase().includes(inputSearch.value.toLowerCase())).map((country) => {
+        container.innerHTML = countries.filter((country) => country.translations.fra.common.toLowerCase().includes(inputSearch.value.toLowerCase()))
+        .slice(0, inputRange.value)
+        .map((country) => {
             return  ` 
                 
                     <div class='country-card'>
@@ -45,3 +47,11 @@ inputSearch.addEventListener('input', (e) => {
     e.preventDefault();
     fetchCountries(e.target.value).then(() => CountriesDisplay());
 } )
+
+inputRange.addEventListener('input', (e) => {
+
+    CountriesDisplay();
+    inputRange.value = e.target.value;
+    rangeValue.textContent = inputRange.value;
+    countries.length = inputRange.value;
+})
