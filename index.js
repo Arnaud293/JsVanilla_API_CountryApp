@@ -49,3 +49,18 @@ inputRange.addEventListener('input', () => {
     CountriesDisplay();
     rangeValue.textContent = inputRange.value;
 })
+
+minToMax.addEventListener('click', () => {
+    CountriesDisplay();
+    countries.sort((a,b) => a.population - b.population);
+})
+
+maxToMin.addEventListener('click', () => {
+    CountriesDisplay();
+    countries.sort((a,b) => b.population - a.population);
+})
+
+alpha.addEventListener('click', () => {
+    CountriesDisplay();
+    countries.sort((a,b) => a.name.common.localeCompare(b.name.common))
+})
