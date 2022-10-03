@@ -2,6 +2,9 @@
 const container = document.querySelector('.countries-container');
 let countries = [];
 
+rangeValue.value = inputRange.value;
+console.log(inputRange.value)
+
 const fetchCountries = async () => {
     await fetch(`https://restcountries.com/v3.1/all/`)
     .then((res) => res.json())
@@ -17,9 +20,12 @@ fetchCountries();
 
 const CountriesDisplay = () => {
 
-    for(let i = 0; i < countries.length; i++){
+    
 
-        container.innerHTML = countries.filter((country) => country.translations.fra.common.includes(inputSearch.value)).map((country) => {
+    for (let i = 0; i < countries.length; i++){
+
+
+        container.innerHTML = countries.filter((country) => country.translations.fra.common.toLowerCase().includes(inputSearch.value.toLowerCase())).map((country) => {
             return  ` 
                 
                     <div class='country-card'>
