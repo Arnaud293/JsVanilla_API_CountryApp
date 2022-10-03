@@ -1,9 +1,5 @@
-// coutry.name.includes(inputSearch.value);
 const container = document.querySelector('.countries-container');
 let countries = [];
-
-rangeValue.value = inputRange.value;
-console.log(inputRange.value)
 
 const fetchCountries = async () => {
     await fetch(`https://restcountries.com/v3.1/all/`)
@@ -51,7 +47,6 @@ inputSearch.addEventListener('input', (e) => {
 inputRange.addEventListener('input', (e) => {
 
     CountriesDisplay();
-    inputRange.value = e.target.value;
     rangeValue.textContent = inputRange.value;
     countries.length = inputRange.value;
 })
